@@ -76,9 +76,9 @@ public class ThreadLocal<T> {
 - 스레드 로컬에 담긴 값을 가져오는 메서드
 - 현재 스레드의 `ThreadLocalMap`에서 `Entry`를 가져와서, 값을 반환한다.
 - 존재하지 않으면 초기 값을 반환한다.
-  **set(T value)**
+**set(T value)**
 -  현재 스레드의 `ThreadLocalMap`의 유무에 따라 값을 설정하거나 `Map` 생성 후 값을 설정한다.
-   **remove()**
+**remove()**
 - 현재 스레드의 `ThreadLocalMap`을 가져와 값을 제거한다.
 
 ### Spring 에서의 ThreadLocal
