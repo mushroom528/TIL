@@ -14,10 +14,8 @@ jobs:
       with:
         # necessary for github-action-til-autoformat-readme
         fetch-depth: 0
-    - name: safe repo
-      run: /usr/bin/git config --global --add safe.directory /github/workspace
     - name: Autoformat README
-      uses: cflynn07/github-action-til-autoformat-readme@1.2.1
+      uses: cflynn07/github-action-til-autoformat-readme@1.2.4
       with:
         description: |
           A collection of concrete writeups of small things I learn daily while working
