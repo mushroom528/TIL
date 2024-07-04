@@ -14,7 +14,7 @@ _2 TILs and counting..._
 ### 2 most recent TILs
 
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md) - 1010 Jan 00:00
-- [](jpa/fetchJoin.md) - 1010 Jan 00:00
+- [# 패치조인(fetch Join)](jpa/fetchJoin.md) - 1010 Jan 00:00
 
 ### Categories
 
@@ -25,7 +25,7 @@ _2 TILs and counting..._
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
 
 ### [jpa](#jpa)
-- [](jpa/fetchJoin.md)
+- [# 패치조인(fetch Join)](jpa/fetchJoin.md)
 
 [1]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
 [2]: https://github.com/jbranchaud/til
