@@ -1,7 +1,7 @@
 # TIL
 > Today I Learned
 
-오늘 새로 알게된 내용이나 삽질한 경험들을 마크다운으로 기록하기📝
+오늘 새로 알게된 내용이나 삽질한 경험들을 마크다운으로 기록하기📝 </br>
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
