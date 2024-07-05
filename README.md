@@ -1,20 +1,13 @@
 # TIL
 > Today I Learned
 
-A collection of concrete writeups of small things I learn daily while working
-and researching. My goal is to work in public. I was inspired to start this
-repository after reading Simon Wilson's [hacker new post][1], and he was
-apparently inspired by Josh Branchaud's [TIL collection][2].
+오늘 새로 알게된 내용이나 삽질한 경험들을 마크다운으로 기록하기📝
+작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
 _2 TILs and counting..._
 
 ---
-
-### 2 most recent TILs
-
-- [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md) - 1010 Jan 00:00
-- [# 패치조인(fetch Join)](jpa/fetchJoin.md) - 1010 Jan 00:00
 
 ### Categories
 
@@ -27,6 +20,6 @@ _2 TILs and counting..._
 ### [jpa](#jpa)
 - [# 패치조인(fetch Join)](jpa/fetchJoin.md)
 
-[1]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
+[1]: https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 [2]: https://github.com/jbranchaud/til
 
