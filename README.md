@@ -5,7 +5,7 @@
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
-_4 TILs and counting..._
+_5 TILs and counting..._
 
 ---
 
@@ -17,7 +17,8 @@ _4 TILs and counting..._
 - [web](#web)
 
 ### [concurrent](#concurrent)
-- [# 재고시스템으로 동시성 이슈 해결하기](concurrent/동시성_이슈_해결방법(1).md)
+- [# 재고시스템으로 동시성 이슈 해결하기(1)](concurrent/동시성_이슈_해결방법(1).md)
+- [# 재고시스템으로 동시성 이슈 해결하기(2)](concurrent/동시성_이슈_해결방법(2).md)
 
 ### [java](#java)
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
