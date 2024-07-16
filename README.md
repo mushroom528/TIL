@@ -18,7 +18,7 @@ _7 TILs and counting..._
 - [web](#web)
 
 ### [OS](#os)
-- [프로세스와 스레드](OS/프로세스와 스레드.md)
+- [프로세스와 스레드](OS/프로세스와_스레드.md)
 
 ### [concurrent](#concurrent)
 - [# 재고시스템으로 동시성 이슈 해결하기(1)](concurrent/동시성_이슈_해결방법(1).md)
