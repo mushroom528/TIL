@@ -5,7 +5,7 @@
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
-_7 TILs and counting..._
+_8 TILs and counting..._
 
 ---
 
@@ -26,6 +26,7 @@ _7 TILs and counting..._
 
 ### [java](#java)
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
+- [# 스레드(1)](java/스레드(1).md)
 
 ### [jpa](#jpa)
 - [# Lock](jpa/Lock.md)
