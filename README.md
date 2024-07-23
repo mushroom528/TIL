@@ -27,7 +27,7 @@ _9 TILs and counting..._
 ### [java](#java)
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
 - [# 스레드(1)](java/스레드(1).md)
-- [지역변수 캡처](java/지역변수_캡처.md)
+- [# 지역변수 캡처](java/지역변수_캡처.md)
 
 ### [jpa](#jpa)
 - [# Lock](jpa/Lock.md)
