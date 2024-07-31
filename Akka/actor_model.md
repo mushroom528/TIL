@@ -146,8 +146,13 @@ class CounterServiceTest {
 ```text
 2024-07-31T14:08:20.092+09:00  INFO 56384 --- [hello-akka] [lt-dispatcher-3] e.helloakka.actor.counter.CounterActor   : Counter incremented: test/100
 ```
-`lt-dispatcher-3` 이라는 스레드를 통해 메세지를 비동기적으로 처리하는 것을 확인 할 수 있다. </br>
+`lt-dispatcher-3` 이라는 스레드를 통해 메세지를 비동기적으로 처리하는 것을 확인 할 수 있다.
 동시에 100개의 요청이 들어와도 기능이 정상적으로 수행되는 것을 확인할 수 있다.
 - Actor 내부에 **메일 박스**라고 하는 메세지 큐가 있어 동시에 메세지를 받아도 순차적으로 처리할 수 있게 된다.
 - 하지만 서버가 여러 대로 구성되어 있으면 위와 같은 방법으로는 동시성 이슈를 해결할 수 없다.
 - n중화된 서버에서 Akka를 사용해서 동시성 이슈를 처리하기 위해서는 `Akka Cluster` 기능을 사용하는듯? 
+> Akka Cluster: 여러 노드에 걸쳐 Actor를 배포하고 관리하는 기능
+## 정리
+- Actor 정의 방법: `AbstractBehavior` 의 상속을 통해 Actor를 정의한다.
+- 비동기 동작: 별도의 스레드를 생성하여 비동기적으로 작업을 처리한다.
+- 순차적 처리: Actor 내부의 메세지 큐를 통해 한 번에 하나의 메세지만 처리한다.
