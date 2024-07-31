@@ -5,17 +5,21 @@
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
-_9 TILs and counting..._
+_10 TILs and counting..._
 
 ---
 
 ### Categories
 
+- [Akka](#akka)
 - [OS](#os)
 - [concurrent](#concurrent)
 - [java](#java)
 - [jpa](#jpa)
 - [web](#web)
+
+### [Akka](#akka)
+- [Akka Actor Model](Akka/actor_model.md)
 
 ### [OS](#os)
 - [프로세스와 스레드](OS/프로세스와_스레드.md)
