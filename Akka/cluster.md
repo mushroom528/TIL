@@ -148,10 +148,9 @@ public class AkkaController {
 ```shell
 java -jar -Dakka.remote.artery.canonical.port=2551 hello-akka-0.0.1-SNAPSHOT.jar --server.port=8080
 java -jar -Dakka.remote.artery.canonical.port=0 hello-akka-0.0.1-SNAPSHOT.jar --server.port=8081
-java -jar -Dakka.remote.artery.canonical.port=0 hello-akka-0.0.1-SNAPSHOT.jar --server.port=8082
 ```
 - 시드 노드의 역할을 하는 인스턴스를 먼저 띄운다.
-- 일반 노드의 역할을 하는 인스턴스 2개를 띄운다.
+- 일반 노드의 역할을 하는 인스턴스 1개를 띄운다.
 - `/members`에 요청을 보내면 아래와 같은 결과를 리턴한다.
 ```json
 [
