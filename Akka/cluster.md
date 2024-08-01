@@ -167,5 +167,5 @@ java -jar -Dakka.remote.artery.canonical.port=0 hello-akka-0.0.1-SNAPSHOT.jar --
 ## 정리
 - 분산 시스템에서 사용할 Akka Cluster 기본적인 개념과 구현 방법을 이해할 수 있었다.
 ## 참고
-https://doc.akka.io/docs/akka/current/typed/cluster.html
+https://doc.akka.io/docs/akka/current/typed/cluster.html </br>
 https://getakka.net/articles/clustering/cluster-overview.html
