@@ -13,7 +13,6 @@ _11 TILs and counting..._
 
 - [Akka](#akka)
 - [OS](#os)
-- [akka](#akka)
 - [concurrent](#concurrent)
 - [java](#java)
 - [jpa](#jpa)
@@ -21,12 +20,10 @@ _11 TILs and counting..._
 
 ### [Akka](#akka)
 - [Akka Actor Model](Akka/actor_model.md)
+- [Akka Cluster](Akka/cluster.md)
 
 ### [OS](#os)
 - [프로세스와 스레드](OS/프로세스와_스레드.md)
-
-### [akka](#akka)
-- [Akka Cluster](akka/cluster.md)
 
 ### [concurrent](#concurrent)
 - [재고시스템으로 동시성 이슈 해결하기(1)](concurrent/동시성_이슈_해결방법(1).md)
