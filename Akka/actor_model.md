@@ -156,3 +156,5 @@ class CounterServiceTest {
 - Actor 정의 방법: `AbstractBehavior` 의 상속을 통해 Actor를 정의한다.
 - 비동기 동작: 별도의 스레드를 생성하여 비동기적으로 작업을 처리한다.
 - 순차적 처리: Actor 내부의 메세지 큐를 통해 한 번에 하나의 메세지만 처리한다.
+## 참고
+https://doc.akka.io/docs/akka/current/typed/index.html
