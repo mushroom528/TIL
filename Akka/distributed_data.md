@@ -95,6 +95,8 @@ public class ORSetActor extends AbstractBehavior<ORSetActor.Command> {
     }  
     record InternalUpdateResponse(Replicator.UpdateResponse<ORSet<String>> rsp) implements InternalCommand {  
     }  
+    record InternalSubscribeResponse(Replicator.SubscribeResponse<ORSet<String>> rsp) implements InternalCommand {  
+    }  
     public record AddElement(String element) implements Command {  
     }  
     public record RemoveElement(String element) implements Command {  
@@ -110,6 +112,7 @@ public class ORSetActor extends AbstractBehavior<ORSetActor.Command> {
         this.node = DistributedData.get(this.getContext().getSystem()).selfUniqueAddress();  
         this.replicatorAdapter = replicatorAdapter;  
         this.dataKey = dataKey;  
+        this.replicatorAdapter.subscribe(this.dataKey, InternalSubscribeResponse::new);  
     }  
   
     public static Behavior<Command> create(ORSetKey<String> dataKey) {  
@@ -125,6 +128,7 @@ public class ORSetActor extends AbstractBehavior<ORSetActor.Command> {
                 .onMessage(AddElement.class, this::onAddElement)  
                 .onMessage(RemoveElement.class, this::onRemoveElement)  
                 .onMessage(GetElements.class, this::onGetElements)  
+                .onMessage(InternalSubscribeResponse.class, this::onInternalSubscribeResponse)  
                 .onMessage(InternalGetResponse.class, this::onInternalGetResponse)  
                 .onMessage(InternalUpdateResponse.class, msg -> {  
                     getContext().getLog().info("Received InternalGetResponse message: {}", msg.rsp());  
@@ -161,7 +165,10 @@ public class ORSetActor extends AbstractBehavior<ORSetActor.Command> {
   
     private Behavior<Command> onGetElements(GetElements command) {  
         replicatorAdapter.askGet(  
-                replyTo -> new Replicator.Get<>(dataKey, Replicator.readLocal(), replyTo),  
+                replyTo -> new Replicator.Get<>(  
+                        dataKey,  
+                        Replicator.readLocal(),  
+                        replyTo),  
                 InternalGetResponse::new  
         );  
         return this;  
@@ -173,7 +180,15 @@ public class ORSetActor extends AbstractBehavior<ORSetActor.Command> {
             Set<String> elements = result.getElements();  
             getContext().getLog().info("Current elements in the ORSet: " + elements);  
             return this;  
+        } else if (command.rsp instanceof Replicator.GetFailure<ORSet<String>> failure) {  
+            getContext().getLog().info("getFailure: " + failure);  
+            return this;  
         }        return Behaviors.unhandled();  
+    }  
+  
+    private Behavior<Command> onInternalSubscribeResponse(InternalSubscribeResponse command) {  
+        getContext().getLog().info("메세지 타입: {}", command.rsp);  
+        return this;  
     }  
 }
 ```
@@ -243,6 +258,22 @@ private Behavior<Command> onInternalGetResponse(InternalGetResponse command) {
 }
 ```
 - `Replicator`에서 전송하는 메세지를 처리하기 위해 위와 같은 방법을 사용
+### Subscribe
+구독하게 되면 데이터가 변경될 때마다 이를 감지하여 추가 작업을 수행할 수 있음(캐싱해두기.. 등등)
+**구독하기**
+```java
+replicatorAdapter.subscribe(this.dataKey, InternalSubscribeResponse::new);
+```
+- 해당 Key에 대한 데이터 변경에 대해서 구독하며, 이후에는 변경사항에 대한 알림을 받음
+- `InternalSubscribeResponse::new` 는 데이터가 변경될 때마다 호출되는 함수
+	- `InternalSubscribeResponse` 타입의 메세지를 발송한다.
+```java
+private Behavior<Command> onInternalSubscribeResponse(InternalSubscribeResponse command) {  
+    getContext().getLog().info("메세지 타입: {}", command.rsp);  
+    return this;  
+}
+```
+- 해당 메세지를 처리하는 로직 작성
 ## 제한사항
 - CRDT는 모든 문제 사항에서 적용할 수 없다. -> eventual consistency이 답이 아니다.
 	- 때로는 strong consistency 가 필요한 경우도 있다.
