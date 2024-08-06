@@ -5,7 +5,7 @@
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
-_11 TILs and counting..._
+_12 TILs and counting..._
 
 ---
 
@@ -21,6 +21,7 @@ _11 TILs and counting..._
 ### [Akka](#akka)
 - [Akka Actor Model](Akka/actor_model.md)
 - [Akka Cluster](Akka/cluster.md)
+- [Distributed Data](Akka/distributed_data.md)
 
 ### [OS](#os)
 - [프로세스와 스레드](OS/프로세스와_스레드.md)
