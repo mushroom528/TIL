@@ -33,7 +33,7 @@ _13 TILs and counting..._
 ### [java](#java)
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
 - [# 스레드(1)](java/스레드(1).md)
-- [](java/스레드제어와_생명주기.md)
+- [스레드 제어와 생명주기](java/스레드제어와_생명주기.md)
 - [# 지역변수 캡처](java/지역변수_캡처.md)
 
 ### [jpa](#jpa)
