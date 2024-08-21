@@ -28,7 +28,7 @@ _13 TILs and counting..._
 
 ### [concurrent](#concurrent)
 - [재고시스템으로 동시성 이슈 해결하기(1)](concurrent/동시성_이슈_해결방법(1).md)
-- [# 재고시스템으로 동시성 이슈 해결하기(2)](concurrent/동시성_이슈_해결방법(2).md)
+- [재고시스템으로 동시성 이슈 해결하기(2)](concurrent/동시성_이슈_해결방법(2).md)
 
 ### [java](#java)
 - [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
