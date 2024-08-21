@@ -31,17 +31,17 @@ _13 TILs and counting..._
 - [재고시스템으로 동시성 이슈 해결하기(2)](concurrent/동시성_이슈_해결방법(2).md)
 
 ### [java](#java)
-- [# 스레드로컬(ThreadLocal)](java/ThreadLocal.md)
-- [# 스레드(1)](java/스레드(1).md)
+- [스레드로컬(ThreadLocal)](java/ThreadLocal.md)
+- [스레드(1)](java/스레드(1).md)
 - [스레드 제어와 생명주기](java/스레드제어와_생명주기.md)
-- [# 지역변수 캡처](java/지역변수_캡처.md)
+- [지역변수 캡처](java/지역변수_캡처.md)
 
 ### [jpa](#jpa)
-- [# Lock](jpa/Lock.md)
-- [# 패치조인(fetch Join)](jpa/fetchJoin.md)
+- [Lock](jpa/Lock.md)
+- [패치조인(fetch Join)](jpa/fetchJoin.md)
 
 ### [web](#web)
-- [# Richardson Maturity Model](web/Richardson-Maturity-Model.md)
+- [Richardson Maturity Model](web/Richardson-Maturity-Model.md)
 
 [1]: https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 [2]: https://github.com/jbranchaud/til
