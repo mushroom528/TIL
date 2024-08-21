@@ -1,4 +1,4 @@
-## Richardson Maturity Model
+# Richardson Maturity Model
 - 마틴 파울러가 소개한 개념으로 REST API가 얼마나 성숙한지 평가하기 위한 척도
 - RESTful 원칙을 얼마나 잘 준수하고 있는지 4단계로 구분함
 ### 레벨 0: The swamp of POX
