@@ -5,7 +5,7 @@
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
-_13 TILs and counting..._
+_14 TILs and counting..._
 
 ---
 
@@ -17,6 +17,7 @@ _13 TILs and counting..._
 - [java](#java)
 - [jpa](#jpa)
 - [web](#web)
+- [분산시스템](#분산시스템)
 
 ### [Akka](#akka)
 - [Akka Actor Model](Akka/actor_model.md)
@@ -42,6 +43,9 @@ _13 TILs and counting..._
 
 ### [web](#web)
 - [Richardson Maturity Model](web/Richardson-Maturity-Model.md)
+
+### [분산시스템](#분산시스템)
+- [CAP 이론](분산시스템/CAP이론.md)
 
 [1]: https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 [2]: https://github.com/jbranchaud/til
