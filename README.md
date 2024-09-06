@@ -5,7 +5,7 @@
 작성방법은 [basic-writing-and-formatting-syntax][1] 참고한다.
 
 
-_14 TILs and counting..._
+_15 TILs and counting..._
 
 ---
 
@@ -43,6 +43,7 @@ _14 TILs and counting..._
 
 ### [web](#web)
 - [Richardson Maturity Model](web/Richardson-Maturity-Model.md)
+- [쿠키와 세션](web/쿠키와세션.md)
 
 ### [분산시스템](#분산시스템)
 - [CAP 이론](분산시스템/CAP이론.md)
