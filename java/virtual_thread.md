@@ -61,7 +61,34 @@ Summary:
 - 가상 스레드를 사용했을 때, 모든 요청을 처리하는데 걸린 시간은 17초가 나왔다. 약 2배 이상이 개선되었다.
 
 > 가상 스레드를 사용하면, 별도의 추가 작업 없이 단순히 설정만 변경하는 것만으로도 성능 개선을 이뤄낼 수 있다.
+## 동작 원리
+```mermaid
+sequenceDiagram
+    participant CT as Carrier Thread
+    participant VT1 as Virtual Thread 1
+    participant VT2 as Virtual Thread 2
+    participant JVM as JVM
+    participant IO as I/O System
 
+    CT->>VT1: 실행
+    VT1->>IO: I/O 작업 요청
+    IO-->>JVM: I/O 작업 시작 알림
+    JVM->>CT: I/O 작업 감지
+    CT->>VT1: 언마운트
+    Note over VT1: Parked 상태
+    CT->>JVM: 다음 실행 가능한 Virtual Thread 요청
+    JVM->>CT: Virtual Thread 2 제공
+    CT->>VT2: 마운트 및 실행
+    IO-->>JVM: I/O 작업 완료 알림
+    JVM->>VT1: 실행 가능 상태로 변경
+    Note over VT1: Ready 상태
+    CT->>VT2: 작업 완료 또는 양보
+    CT->>VT1: 재마운트 및 실행 재개
+```
+- 캐리어 스레드 위에서 실행되고 있는 가상 스레드에서 I/O 작업을 시작하면 캐리어 스레드는 해당 가상 스레드를 언마운트한다.
+- 그 후 캐리어 스레드는 다른 작업이 가능한 가상 스레드를 마운트하여 다른 작업을 수행할 수 있다.
+- 하나의 캐리어 스레드로 여러 가상 스레드를 처리할 수 있어 OS 수준의 스레드 수를 최소화 하면서도 높은 동시 처리를 수행할 수 있다.
+- 복잡한 비동기 프로그래밍 방식 대신에 기존 코드를 그대로 작성하면서 비동기의 이점을 얻을 수 있다.
 ## 참고자료
 https://d2.naver.com/helloworld/1203723  
 https://techblog.woowahan.com/15398/
