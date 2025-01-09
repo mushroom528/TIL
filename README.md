@@ -32,7 +32,7 @@ _17 TILs and counting..._
 - [재고시스템으로 동시성 이슈 해결하기(2)](concurrent/동시성_이슈_해결방법(2).md)
 
 ### [java](#java)
-- [String Pool](java/String Pool.md)
+- [String Pool](java/String_Pool.md)
 - [스레드로컬(ThreadLocal)](java/ThreadLocal.md)
 - [가상 스레드(Virtual Thread)](java/virtual_thread.md)
 - [스레드(1)](java/스레드(1).md)
