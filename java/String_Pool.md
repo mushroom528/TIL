@@ -52,3 +52,6 @@ Java 8u20부터 도입된 G1 GC의 String Deduplication 기능은 힙 메모리�
 - 대량의 문자열 처리 시에는 StringBuilder나 StringBuffer 사용을 고려
 
 String Pool은 String 객체의 특성을 활용한 JVM의 메모리 최적화 방식으로, 적절히 활용하면 메모리 사용량을 줄일 수 있다. 하지만 과도한 사용은 오히려 성능 저하를 일으킬 수 있으므로 주의가 필요하다.
+
+## Reference
+[[Udemy] Discover how coding choices, benchmarking, performance tuning and memory management can optimize your Java applications](https://www.udemy.com/course/java-application-performance-and-memory-management/)
