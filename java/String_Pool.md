@@ -67,35 +67,46 @@ public class StringPoolPerformanceMain {
 }
 ```
 
-JVM 옵션 `-XX:+PrintStringTableStatistics`를 사용하면 String Pool의 상태를 확인할 수 있다. 위 코드를 실행한 결과는 다음과 같다:
+JVM 옵션 `-XX:+PrintStringTableStatistics`를 사용하면 SymbolTable과 StringTable의 상태를 확인할 수 있다. 테스트 결과는 다음과 같다:
 
+### SymbolTable 분석
+SymbolTable은 JVM 내부에서 사용하는 심볼들을 관리하는 테이블이다.
 ```text
-실행 시간: 3669ms
-SymbolTable statistics:
 Number of buckets       :     32768 =    262144 bytes, each 8
-Number of entries       :     23388 =    374208 bytes, each 16
-Number of literals      :     23388 =    899176 bytes, avg  38.000
-Total footprint         :           =   1535528 bytes
-Average bucket size     :     0.714
-Variance of bucket size :     0.708
-Std. dev. of bucket size:     0.841
+Number of entries       :     23976 =    383616 bytes, each 16
+Number of literals      :     23976 =    914912 bytes, avg  38.000
+Average bucket size     :     0.732
 Maximum bucket size     :         7
 ```
+- 버킷 수는 32,768개로 각 버킷당 8바이트 사용
+- 평균 버킷 사이즈는 0.732로 여유 공간이 충분함
+- 최대 버킷 사이즈가 7이므로 체이닝이 길지 않음
 
-테스트 결과를 분석해보면:
-- 1천만 개의 문자열을 생성하고 intern()하는데 약 3.7초가 소요됨
-- String Pool의 버킷 수는 32,768개로, 각 버킷은 8바이트를 차지
-- 실제 저장된 문자열(엔트리) 수는 23,388개
-- 평균 버킷 크기는 0.714로, 해시 충돌이 많지 않음을 보여줌
-  - 버킷에는 0개 또는 1개 이상의 엔트리가 존재함 
-  - 만약 모든 버킷에 균등하게 데이터가 분배되어 있다고 가정하면, 하나의 버킷에 0.714개의 엔트리가 존재함
-- 최대 버킷 크기가 7이라는 것은 한 버킷에 최대 7개의 문자열이 체이닝되어 있다는 의미
+### StringTable 분석
+StringTable은 `String.intern()`으로 관리되는 실제 문자열 풀이다.
+```text
+Number of buckets       :   4194304 =  33554432 bytes, each 8
+Number of entries       :  10001849 = 160029584 bytes, each 16
+Number of literals      :  10001849 = 480121072 bytes, avg  48.000
+Average bucket size     :     2.385
+Maximum bucket size     :        13
+Std. dev. of bucket size:     1.966
+```
+- 약 1천만 개의 문자열이 `intern()` 되어 있음
+- 버킷 수가 4,194,304개로 SymbolTable보다 훨씬 큼
+- 평균 버킷 사이즈는 2.385로 버킷당 평균 2~3개의 문자열이 존재
+- 최대 버킷 사이즈는 13으로, 일부 버킷에서는 상당한 충돌이 발생
 
-이러한 성능 테스트를 통해 String Pool의 메모리 사용량과 검색 효율성을 확인할 수 있다.
+### 성능 분석
+- 1천만 개의 문자열을 `intern()`하는데 약 3.6초 소요
+- StringTable은 총 약 642MB(673,705,088 bytes)의 메모리를 사용
+- 문자열 하나당 평균 48바이트 사용
+- 버킷 사이즈의 표준편차(1.966)는 문자열들이 비교적 고르게 분포되어 있음을 보여줌
 
 ### 주의점
-- 대량의 문자열을 intern()할 경우 String Pool의 크기가 급격히 증가할 수 있음
-- 실제 운영 환경에서는 필요한 경우에만 선별적으로 `intern()` 사용을 고려
+- 대량의 문자열을 `intern()`할 경우 메모리 사용량이 급격히 증가할 수 있음
+- 평균 버킷 사이즈가 2.385인 것은 해시 충돌이 꽤 발생하고 있다는 의미로, 검색 성능에 영향을 줄 수 있음
+- 실제 운영 환경에서는 필요한 경우에만 선별적으로 `intern()` 사용을 고려해야 함
 - `intern()`의 과도한 사용은 String Pool의 크기를 증가시켜 성능 저하 가능
 - String Pool의 문자열은 GC 대상이 되지만, 레퍼런스가 있는 한 메모리에서 해제되지 않음
 - 대량의 문자열 처리 시에는 `StringBuilder`나 `StringBuffer` 사용을 고려
